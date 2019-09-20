@@ -15,13 +15,10 @@ class recipeViewController: UIViewController,UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         iBOutletSetup();
-
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         recipesVM = RecipesVM(_serviceAdapter: NetworkAdapter())
         recipesVM.delegate = self
     }
+
     func iBOutletSetup()
     {
         tableView?.dataSource = self
