@@ -5,7 +5,6 @@
 //  Created by Bassuni on 9/19/19.
 //  Copyright © 2019 Mahmoud. All rights reserved.
 //
-
 import Foundation
 enum EndPoint: String{
     case baseUrl = "http://food2fork.com/api/"

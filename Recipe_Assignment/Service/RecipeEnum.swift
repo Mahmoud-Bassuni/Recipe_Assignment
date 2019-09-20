@@ -9,11 +9,11 @@ import Foundation
 import Moya
 enum RecipeEnum{
     case getAllRecipe(pageId : Int,query : String)
-     case getRecipeDetail(recipeId: String)
+    case getRecipeDetail(recipeId: String)
 }
 extension RecipeEnum: TargetType{
     var baseURL: URL {
-            return URL(string: EndPoint.baseUrl.rawValue)!
+        return URL(string: EndPoint.baseUrl.rawValue)!
     }
     var path: String {
         switch self{

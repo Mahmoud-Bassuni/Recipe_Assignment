@@ -9,7 +9,7 @@ import Foundation
 class RecipeDetailsVM{
     public var delegate : RecipeDetailsDelegate!
     var recipeId: String!
-    var recipe: RecipeDetail!
+    private var recipe: RecipeDetail!
     private var serviceAdapter : NetworkAdapter<RecipeEnum>!
     init(_recipeId : String , _serviceAdapter : NetworkAdapter<RecipeEnum>) {
         serviceAdapter = _serviceAdapter
@@ -17,7 +17,6 @@ class RecipeDetailsVM{
         fetchRecipeDetailsData()
     }
     func fetchRecipeDetailsData(){
-        // show loading in main ui thread
         serviceAdapter.request(target: .getRecipeDetail(recipeId: recipeId), success: { [unowned self] response in
             do{
                 let decoder = JSONDecoder()
@@ -34,6 +33,9 @@ class RecipeDetailsVM{
             catch let err { print("Err", err)}
             }, error: {error  in self.delegate?.showAlert(messgae: error.localizedDescription)}
             , failure: {moyaError in self.delegate?.showAlert(messgae: moyaError.localizedDescription)})
+    }
+    func getRecipeDetails() -> RecipeDetail{
+        return self.recipe
     }
     // when vm was dispose it must be to clear all dependency
     deinit {
