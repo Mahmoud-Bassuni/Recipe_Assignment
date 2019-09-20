@@ -10,6 +10,6 @@ enum EndPoint: String{
     case baseUrl = "http://food2fork.com/api/"
     case GetAllRecipeURL = "search"
     case GetRecipeDetailURL = "get"
-    case token = "5f83ca3e0a1a2dd71039217c63b99537"
+    case token = "ac3d60ae3b75ce8cacc29351f1aa6160"
 
 }
